@@ -24,11 +24,16 @@ class Hotel {
   }
 
   login(username, password) {
-    return this.allCustomers.find((customer) => {
+    const user = this.allCustomers.find((customer) => {
       if (customer.username === username && customer.password === password) {
         return customer;
       }
     });
+    if (username === "manager" && password === "overlook2021") {
+      return "manager";
+    } else {
+      return user;
+    }
   }
 
   findCustomerBookings(currentUser) {

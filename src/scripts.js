@@ -43,9 +43,11 @@ let wantedRoomType = document.querySelector("#select-room");
 let submitBookingButton = document.querySelector("#submit-booking");
 const calendar = document.getElementById("calendar");
 
+const managerDashboard = document.querySelector(".manager-dashboard");
+
 //even listeners
 window.addEventListener("load", loadAllData);
-loginButton.addEventListener("click", loginCustomer);
+loginButton.addEventListener("click", loginUser);
 navigationBar.addEventListener("click", changePageDisplay);
 signIn.addEventListener("click", backToLogin);
 submitBookingButton.addEventListener("click", searchForBookableRooms);
@@ -75,22 +77,35 @@ function loadAllData() {
 
 //Starting functions
 
-function loginCustomer() {
+function loginUser() {
   currentUser = overlookHotel.login(username.value, password.value);
   if (currentUser === undefined) {
     loginError.innerText = "Invalid credentials! Please try again!";
     show(loginError);
     return "did not work";
   } else {
-    console.log(currentUser);
-    hide(loginSection);
-    show(navigationBar);
-    show(welcome);
-    show(signIn);
-    welcome.innerText = `Welcome ${currentUser.name}`;
-    updateCustomerBookings();
-    return currentUser;
+    if (currentUser === "manager") {
+      console.log("manager");
+      loginManager();
+    } else {
+      loginCustomer();
+    }
   }
+}
+
+function loginCustomer() {
+  hide(loginSection);
+  show(navigationBar);
+  show(welcome);
+  show(signIn);
+  welcome.innerText = `Welcome ${currentUser.name}`;
+  updateCustomerBookings();
+  return currentUser;
+}
+
+function loginManager() {
+  hide(loginSection);
+  show(managerDashboard);
 }
 
 function changePageDisplay(event) {
