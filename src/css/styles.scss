@@ -9,6 +9,7 @@ $fontCantanaOne: "Cantata One", serif;
 $backgroundPicture: url("../images/vacation.jpg");
 
 body {
+  font-family: $fontCantanaOne;
   background-image: $backgroundPicture;
   background-size: cover;
   background-repeat: repeat-y;
@@ -46,7 +47,8 @@ body {
   justify-content: space-between;
 }
 
-.first-navigation {
+.first-navigation,
+.manager-nav {
   margin-left: 3rem;
 }
 
@@ -179,7 +181,7 @@ button:hover {
 }
 
 /* form */
-#booking-form {
+.booking-form {
   display: flex;
   flex-direction: column;
   border: 2px solid $white;
@@ -222,8 +224,17 @@ button:hover {
 
 // Create new booking
 
-#available-rooms {
+#available-rooms,
+#manager-available-rooms {
   text-align: center;
+}
+
+#rooms-available,
+#total-revenue,
+#percentage-occupied,
+#current-searched-customer {
+  font: 2vw;
+  margin-left: 2%;
 }
 
 .room-thumbnails {
@@ -242,6 +253,17 @@ button:hover {
   margin: 5%;
 }
 
+.manager-single-room-thumbnail {
+  justify-self: center;
+  color: $white;
+  border: $white solid 2px;
+  border-radius: 0.25rem;
+  background-color: $navy;
+  width: min-content;
+  padding: 2%;
+  margin: 0;
+}
+
 .single-room-img {
   height: 22vh;
   width: auto;
@@ -253,7 +275,8 @@ button:hover {
 
 //My bookings
 
-.manage-bookings {
+.manage-bookings,
+.manager-manage-bookings {
   padding: 1%;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -268,10 +291,21 @@ button:hover {
   border: 2px solid $white;
 }
 
+#manager-customer-bookings {
+  padding: 1%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2rem;
+}
+
 .total-spent {
   color: $white;
 }
 
 .hide {
   display: none;
+}
+
+.hide-visibility {
+  visibility: hidden;
 }

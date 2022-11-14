@@ -22,6 +22,12 @@
         <button class="manage-bookings-button">Manage My Bookings</button>
         <button class="create-bookings-button">Create New Booking</button>
       </section>
+      <section class="manager-nav hide">
+        <button class="manager-dashboard-button">Dashboard</button>
+        <button class="manager-customer-bookings-button">
+          Manage Bookings
+        </button>
+      </section>
       <button class="sign-in hide">Sign In</button>
     </nav>
     <main class="main">
@@ -62,7 +68,7 @@
           <!-- Booking info -->
         </section>
         <section class="add-booking hide">
-          <form id="booking-form">
+          <form class="booking-form">
             <div class="form-group calendar-section" id="calendarSection">
               <label class="book-room-titles" for="calendar"
                 >Check availability:</label
@@ -104,7 +110,81 @@
             </section>
           </section>
         </section>
-        <section class="manager-dashboard"></section>
+        <section class="manager-dashboard hide">
+          <section class="hotel-information hide">
+            <p id="rooms-available">PLACEHOLDER</p>
+            <p id="total-revenue">PLACEHOLDER</p>
+            <p id="percentage-occupied">PLACEHOLDER</p>
+            <p id="current-searched-customer">Customer:</p>
+          </section>
+          <section class="manager-add-booking add-booking hide">
+            <form class="booking-form manager">
+              <div class="form-group">
+                <label for="find-customer"
+                  >Search by customer name to get their info:</label
+                >
+                <input type="text" id="find-customer" class="input" />
+                <div class="form-group">
+                  <button id="search-customers" class="submit-button">
+                    Search
+                  </button>
+                </div>
+              </div>
+              <div class="form-group calendar-section" id="calendarSection">
+                <label class="book-room-titles" for="manager-calendar"
+                  >Check availability:</label
+                >
+                <input
+                  class="book-room-titles calendar"
+                  type="date"
+                  id="manager-calendar"
+                  name="booking"
+                  value=""
+                  min=""
+                />
+              </div>
+              <div class="form-group">
+                <label for="manager-select-room"
+                  >What room type are you looking for?</label
+                >
+                <select
+                  id="manager-select-room"
+                  class="form-control"
+                  required=""
+                >
+                  <option disabled="" selected="" value="">
+                    What room type are you looking for?
+                  </option>
+                  <option value="no-preference">No preference</option>
+                  <option value="residential suite">Residential Suite</option>
+                  <option value="suite">Suite</option>
+                  <option value="single room">Single Room</option>
+                  <option value="junior suite">Junior Suite</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <button
+                  type="submit"
+                  id="manager-submit-booking"
+                  class="submit-button"
+                >
+                  Check Availability
+                </button>
+              </div>
+            </form>
+            <section
+              id="manager-add-booking add-booking"
+              class="booking-results"
+            >
+              <h2 id="manager-available-rooms">
+                Double click on a room to book it!
+              </h2>
+              <section id="manager-book-room" class="room-thumbnails">
+                <!-- ROOMS GO HERE -->
+              </section>
+            </section>
+          </section>
+        </section>
       </span>
     </main>
     <script src="bundle.js"></script>

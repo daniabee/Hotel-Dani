@@ -448,4 +448,8 @@ describe("Hotel", function () {
       roomNumber: 4,
     });
   });
+  it("Should let us know total revenue for any given date", function () {
+    const found1 = hotelDani.totalRevenue(`2023/02/05`);
+    expect(found1).to.deep.equal(50.25);
+  });
 });
